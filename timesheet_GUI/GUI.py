@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QDate
+from PyQt5.QtCore import QDate, QTimer
 from timesheet.sql_bd import scratch
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -40,7 +40,7 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
     def handler_button_click_date(self):
-        selected_date = self.dateEdit.date().toString("MM.yyyy")
+        self.selected_date = self.dateEdit.date().toString("MM.yyyy")
         self.dateEdit.parent().close()  # Закрываем окно
         self.new_form = QtWidgets.QWidget()  # Создаем новое окно
         self.open_timesheet_date(self.new_form)
@@ -84,8 +84,10 @@ class Ui_Form(object):
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)
+        self.load_data()
         self.retranslateUi_1(From_1)
         QtCore.QMetaObject.connectSlotsByName(From_1)
+    def load_data(self):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Табель"))
@@ -98,7 +100,6 @@ class Ui_Form(object):
         Form_1.setWindowTitle(_translate("Form_1", "Табель по сотрудникам"))
         self.label_0.setText(_translate("Form_1", "Смена / график"))
         self.label_2.setText(_translate("Form_1", "Сотрудник"))
-
 
 if __name__ == "__main__":
     import sys
