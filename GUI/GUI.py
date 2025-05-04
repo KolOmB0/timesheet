@@ -37,7 +37,7 @@ class MainWindow(QMainWindow):
 
         left_widget = QWidget()
         left_widget.setLayout(left_layout)
-        left_widget.setFixedWidth(100)
+        left_widget.setFixedWidth(150)
 
         # Правый блок (будущая таблица)
         self.content_area = QLabel("Здесь будет таблица")
@@ -66,7 +66,7 @@ class MainWindow(QMainWindow):
     def name_widgets_object(self):
         _translate = QCoreApplication.translate
         self.setWindowTitle(_translate("Dialog", "Табель"))
-        self.button1.setText(_translate("QPushButton1", "Табель учета рабочего времени"))
+        self.button1.setText(_translate("QPushButton1", "Табель учета\nрабочего времени"))
         self.button2.setText(_translate("QPushButton2", "Табель сменности"))
         self.button3.setText(_translate("QPushButton3", "Развозка"))
         self.button4.setText(_translate("QPushButton4", "Обеды"))
